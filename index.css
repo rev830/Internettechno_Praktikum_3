@@ -1,0 +1,44 @@
+.logo {
+  width: 128px;
+  height: 128px;
+}
+
+.toolbar {
+  display: flex; /*für wwagrechtes Layout */
+  list-style: none; /*entfernt die Listenpunkte */
+  padding: 0; /*setzt die Elemente der Toolbar an den linken Rand */
+  margin: 0; /*Abstand zum Logo */
+  background-color: #333;
+  width: fit-content; /* Macht die Toolbar nur so breit wie nötig */
+  position: relative; /* wichtig für absolutes Positionieren von Kind-Elementen */
+}
+
+.toolbar li {
+  position: relative;
+  padding: 10px 20px;
+  color: white;
+  cursor: pointer; /* Macht den Cursor beim drüberhovern schöner */
+  z-index: 1; /* damit es unter der Sub-Toolbar liegen kann */
+}
+
+.toolbar li:hover {
+  background-color: #be0000;
+}
+
+.sub-toolbar {
+  display: none; /* wird standartmäßig ausgeblendet */
+  list-style: none;
+  position: absolute; /* soll das alte li Element überdecken */
+  top: 0;
+  left: 0;
+  padding: 0;
+  margin: 0;
+  background-color: #333;
+  z-index: 10; /* höher als die Haupt-Tabs */
+}
+
+/* li Elemente der Subtoolbar müssen nicht spezifiziert werden - Übernahme der ursprünglichen li Festlegung */
+
+.toolbar li:hover .sub-toolbar {
+  display: block; /* Blednet die Subtoolbar ein sobald über das li Element gehovert wird */
+}
